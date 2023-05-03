@@ -25,7 +25,8 @@
                 let message = document.getElementById('message');
 
                 let date = {name: name, message: message};
-                tg.sendData(JSON.stringify(date))
+                alert(date);
+                tg.sendData(JSON.stringify(date));
                 tg.close();
             });
 
