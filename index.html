@@ -18,17 +18,15 @@
         <script>
             let tg = window.Telegram.WebApp;
             tg.expend();
-            let item = "";
+            
             let order = document.getElementById('btm');
-
-
 
             order.addEventListener('click', () => {
                 let name = document.getElementById('name');
                 let message = document.getElementById('message');
 
                 let date = {name: name, message: message};
-                tg.sendData(JSON.stringify(date))
+                tg.sendData(JSON.stringify(date));
                 tg.close();
             });
 
