@@ -12,16 +12,26 @@
         <label for="message">Message:</label>
         <textarea id="message" name="message"></textarea>
 
-        <button type="submit">Send Feedback</button>
+        <button id="btm" type="submit">Send Feedback</button>
 
         <script src="https://telegram.org/js/telegram-web-app.js"></script>
         <script>
             let tg = window.Telegram.WebApp;
             tg.expend();
             let item = "";
+            let order = document.getElementById('btm');
 
-            let name = document.getElementById('name')
-            let message = document.getElementById('message')
+
+
+            order.addEventListener('click', () => {
+                let name = document.getElementById('name');
+                let message = document.getElementById('message');
+
+                let date = {name: name, message: message};
+                tg.sendData(JSON.stringify(date))
+                tg.close();
+            });
+
 
         </script>
 
