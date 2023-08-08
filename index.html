@@ -71,15 +71,17 @@
 
         tg.expand(); //расширяем на все окно
 
-        btn.addEventListener("click", () => {
-            let first = document.getElementById("first-name");
-            let last = document.getElementById("last-name");
-            
+        btn.addEventListener("click", (event) => {
+            event.preventDefault(); // Prevent the default form submission
+        
+            let firstName = document.getElementById("first-name").value;
+            let lastName = document.getElementById("last-name").value;
+        
             let data = {
-                name: first,
-                surname: last
-            }
-            
+                name: firstName,
+                surname: lastName
+            };
+        
             tg.sendData(JSON.stringify(data));
             tg.close();
         });
