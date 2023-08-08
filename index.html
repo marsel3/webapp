@@ -67,11 +67,21 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         let tg = window.Telegram.WebApp; //получаем объект webapp телеграма
+        let btn = document.getElementById("mainButton");
+
         tg.expand(); //расширяем на все окно
-        
-        Telegram.WebApp.onEvent('mainButtonClicked', function(){
-            tg.sendData("some string that we need to send"); 
-            //при клике на основную кнопку отправляем данные в строковом виде
+
+        btn.addEventListener("click", () => {
+            let first = document.getElementById("first-name");
+            let last = document.getElementById("last-name");
+            
+            let data = {
+                name: first,
+                surname: last
+            }
+            
+            tg.sendData(JSON.stringify(data));
+            tg.close();
         });
 
     </script>
